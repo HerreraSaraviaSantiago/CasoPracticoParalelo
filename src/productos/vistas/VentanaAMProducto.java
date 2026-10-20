@@ -154,8 +154,10 @@ public class VentanaAMProducto extends JDialog {
         int codigo = Integer.parseInt(this.txtCodigo.getText().trim());
         String descripcion = this.txtDescripcion.getText().trim();
         float precio = Float.parseFloat(this.txtPrecio.getText().trim());
-        Categoria categoria = Categoria.valueOf(this.txtCategoria.getText().trim().toUpperCase());
-        Estado estado  = Estado.valueOf(this.txtEstado.getText().trim().toUpperCase());
+        String textoCat = this.txtCategoria.getText().trim().toUpperCase().replace(" ", "_");
+        Categoria categoria = Categoria.valueOf(textoCat);
+        String textoEst = this.txtEstado.getText().trim().toUpperCase().replace(" ", "_");
+        Estado estado = Estado.valueOf(textoEst);
         Producto unProducto = new Producto(codigo, precio, descripcion, categoria, estado);
         this.productos.add(unProducto);
         

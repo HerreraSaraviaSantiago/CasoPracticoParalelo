@@ -79,6 +79,28 @@ public class Producto {
     
     @Override
     public String toString(){
-        return descripcion;
+        return "[" + this.codigo + "] " + this.descripcion + "\t$" + this.precio;
+    }
+    
+    @Override
+    public boolean equals(Object o){
+        if(o == null){
+            return false;
+        }
+        if(this == o){
+            return true;
+        }
+        if(this.getClass() != o.getClass()){
+            return false;
+        }
+        Producto otro = (Producto) o;
+        return this.codigo == otro.codigo;
+    }
+    
+    @Override
+    public int hashCode(){
+        int hash = 7;
+        hash = 53 * hash + this.codigo;
+        return hash;
     }
 }
